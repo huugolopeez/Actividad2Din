@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../custom/HLTextField.dart';
+
 class RegisterView extends StatelessWidget {
 
   late BuildContext _context;
@@ -57,35 +59,15 @@ class RegisterView extends StatelessWidget {
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: TextField(
-                      controller: tecEmail,
-                      decoration: InputDecoration(
-                          labelText: 'Username',
-                          border: OutlineInputBorder()
-                      )
-                  )
+                  child: HLTextField(sHint: 'Username', tecController: tecEmail)
               ),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: TextFormField(
-                      controller: tecPass,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder()
-                      )
-                  )
+                  child: HLTextField(sHint: 'Password', tecController: tecPass, bObsucure: true)
               ),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: TextFormField(
-                      controller: tecRepass,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          labelText: 'Confirm password',
-                          border: OutlineInputBorder()
-                      )
-                  )
+                  child: HLTextField(sHint: 'Confirm password', tecController: tecRepass, bObsucure: true)
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
