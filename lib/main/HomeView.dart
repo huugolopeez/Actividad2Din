@@ -7,22 +7,24 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        title: Center(child: Text('Home')),
         backgroundColor: Colors.deepPurple,
-        shadowColor: Colors.deepPurpleAccent,
-        title: Center(child: Text('Home'))
+        shadowColor: Colors.deepPurpleAccent
       ),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-              child: Padding(padding: EdgeInsets.only(bottom: 16),
-                child: Text('Bienvenido al home de Actividad1', textScaleFactor: 2),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text('Bienvenido al home de Actividad1', textScaleFactor: 2)
               )
           ),
           Center(
-            child: Image.asset('resources/gatoElegante.jpg', width: 200),
+            child: Image.asset('resources/gatoElegante.jpg', width: 200)
           )
-        ],
-      ),
+        ]
+      )
     );
   }
 }

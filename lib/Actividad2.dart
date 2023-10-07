@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 import 'main/HomeView.dart';
 import 'onBoarding/LoginView.dart';
 import 'onBoarding/RegisterView.dart';
-
 
 class Actividad2 extends StatelessWidget {
 
@@ -12,14 +10,14 @@ class Actividad2 extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: '1DIN',
+      title: '2DIN',
       routes: {
         '/loginview': (context) => LoginView(),
         '/registerview': (context) => RegisterView(),
         '/homeview': (context) => HomeView()
       },
       initialRoute: '/loginview',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false
     );
   }
 }
