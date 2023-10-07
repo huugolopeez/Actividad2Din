@@ -1,6 +1,7 @@
-import 'package:actividad1/main/HomeView.dart';
+
 import 'package:flutter/material.dart';
 
+import 'main/HomeView.dart';
 import 'onBoarding/LoginView.dart';
 import 'onBoarding/RegisterView.dart';
 
