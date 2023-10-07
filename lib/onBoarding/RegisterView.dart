@@ -46,59 +46,56 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     _context = context;
 
     return Scaffold(
         appBar: AppBar(
-            title: Center(child: Text('Register')),
-            backgroundColor: Colors.deepPurple,
-            shadowColor: Colors.deepPurpleAccent
+          title: Center(child: Text('Register')),
+          backgroundColor: Colors.deepPurple,
+          shadowColor: Colors.deepPurpleAccent
         ),
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: HLTextField(sHint: 'Username', tecController: tecEmail)
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: HLTextField(sHint: 'Password', tecController: tecPass, bObsucure: true)
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                  child: HLTextField(sHint: 'Confirm password', tecController: tecRepass, bObsucure: true)
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                        onPressed: () {
-                          onClickRegister();
-                        },
-                        child: Text('Register'),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.deepPurple),
-                            foregroundColor: MaterialStateProperty.all(
-                                Colors.white)
-                        )
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          onClickCancel();
-                        },
-                        child: Text('Cancel'),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.deepPurple),
-                            foregroundColor: MaterialStateProperty.all(
-                                Colors.white)
-                        )
-                    )
-                  ]
-              )
-            ]
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+              child: HLTextField(sHint: 'Username', tecController: tecEmail)
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+              child: HLTextField(sHint: 'Password', tecController: tecPass, bObsucure: true)
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+              child: HLTextField(sHint: 'Confirm password', tecController: tecRepass, bObsucure: true)
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                  child: TextButton(
+                    onPressed: () { onClickRegister(); },
+                    child: Text('Register'),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                      foregroundColor: MaterialStateProperty.all(Colors.white)
+                    ))
+                ),
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                    child: TextButton(
+                    onPressed: () { onClickCancel(); },
+                    child: Text('Cancel'),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                      foregroundColor: MaterialStateProperty.all(Colors.white)
+                    ))
+                )
+              ]
+            )
+          ]
         )
     );
   }

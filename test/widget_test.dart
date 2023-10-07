@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:actividad1/Main.dart';
+import 'package:actividad2/Actividad2.dart';
 
 import '../lib/Actividad2.dart';
 

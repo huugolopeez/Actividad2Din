@@ -1,6 +1,7 @@
-import 'package:actividad1/custom/HLTextField.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/HLTextField.dart';
 
 class LoginView extends StatelessWidget {
 
@@ -60,21 +61,25 @@ class LoginView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                child: TextButton(
                   onPressed: () { onClickLogin(); },
                   child: Text('Login'),
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      foregroundColor: MaterialStateProperty.all(Colors.white)
-                  )
+                    backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                    foregroundColor: MaterialStateProperty.all(Colors.white)
+                  ))
               ),
-              TextButton(
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                child: TextButton(
                   onPressed: () { onClickRegister(); },
                   child: Text('Register'),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
                     foregroundColor: MaterialStateProperty.all(Colors.white)
-                  )
+                  ))
               )
             ]
           )
