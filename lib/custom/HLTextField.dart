@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 
 class HLTextField extends StatelessWidget {
 
-  String sHint;
+  String sLabel;
   TextEditingController tecController;
-  bool bObsucure;
+  bool blIsPassword;
 
-  HLTextField({Key? key, required this.sHint, required this.tecController, this.bObsucure=false}) : super(key : key);
+  HLTextField({Key? key, required this.sLabel, required this.tecController, this.blIsPassword=false}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
 
     return Row(
-        children: [
-          Flexible(child: TextFormField(
-              controller: tecController,
-              obscureText: bObsucure,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: sHint
-              )
-          ))
-        ]
+      children: [
+        Flexible(child: TextFormField(
+          controller: tecController,
+          obscureText: blIsPassword,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: sLabel
+          )
+        ))
+      ]
     );
   }
 }

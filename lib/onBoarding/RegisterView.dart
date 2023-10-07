@@ -60,15 +60,15 @@ class RegisterView extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sHint: 'Username', tecController: tecEmail)
+              child: HLTextField(sLabel: 'Username', tecController: tecEmail)
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sHint: 'Password', tecController: tecPass, bObsucure: true)
+              child: HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true)
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sHint: 'Confirm password', tecController: tecRepass, bObsucure: true)
+              child: HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true)
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
