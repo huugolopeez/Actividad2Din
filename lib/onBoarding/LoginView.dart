@@ -43,21 +43,16 @@ class LoginView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Login')),
+        title: Text('Login'),
+        centerTitle: true,
         backgroundColor: Colors.deepPurple,
         shadowColor: Colors.deepPurpleAccent
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-            child: HLTextField(sLabel: 'Username', tecController: tecEmail)
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-            child: HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true)
-          ),
+          HLTextField(sLabel: 'Username', tecController: tecEmail),
+          HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

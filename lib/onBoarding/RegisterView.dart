@@ -51,25 +51,17 @@ class RegisterView extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('Register')),
+          title: Text('Register'),
+          centerTitle: true,
           backgroundColor: Colors.deepPurple,
           shadowColor: Colors.deepPurpleAccent
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sLabel: 'Username', tecController: tecEmail)
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true)
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-              child: HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true)
-            ),
+            HLTextField(sLabel: 'Username', tecController: tecEmail),
+            HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true),
+            HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
