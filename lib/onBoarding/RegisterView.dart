@@ -78,12 +78,12 @@ class RegisterView extends StatelessWidget {
                 Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                     child: TextButton(
-                    onPressed: () { onClickCancel(); },
-                    child: Text('Cancel'),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      foregroundColor: MaterialStateProperty.all(Colors.white)
-                    ))
+                      onPressed: () { onClickCancel(); },
+                      child: Text('Cancel'),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                        foregroundColor: MaterialStateProperty.all(Colors.white)
+                      ))
                 )
               ]
             )
