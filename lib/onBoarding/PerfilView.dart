@@ -10,7 +10,7 @@ class PerfilView extends StatelessWidget {
   TextEditingController tecName = TextEditingController();
   TextEditingController tecAge = TextEditingController();
 
-  void onClickAceptar() {
+  Future<void> onClickAceptar() async {
     
     final usuario = <String, dynamic>{
       "nombre": tecName.text,
@@ -18,7 +18,8 @@ class PerfilView extends StatelessWidget {
     };
 
     String uidUser = FirebaseAuth.instance.currentUser!.uid;
-    db.collection("Usuarios").doc(uidUser).set(usuario);
+    await db.collection("Usuarios").doc(uidUser).set(usuario);
+    Navigator.of(_context).popAndPushNamed('/homeview');
   }
 
   void onClickCancelar() {
