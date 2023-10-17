@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class PostCellView extends StatelessWidget {
 
-  final String sText;
+  final String sTitulo;
+  final String sCuerpo;
   final int iColorCode;
   final double dFontSize;
 
   PostCellView({Key? key,
-    required this.sText,
+    required this.sTitulo,
+    required this.sCuerpo,
     required this.iColorCode,
     required this.dFontSize
   });
@@ -19,11 +21,20 @@ class PostCellView extends StatelessWidget {
       color: Colors.amber[iColorCode],
       child: Padding(
         padding: EdgeInsets.all(10),
-        child: Text(
-            sText,
-            style: TextStyle(
+        child: Column(
+          children: [
+            Text(
+              sTitulo,
+              style: TextStyle(
+                fontSize: dFontSize
+            )),
+            Text(
+              sCuerpo,
+              style: TextStyle(
                 fontSize: dFontSize
             ))
+          ]
+        )
       )
     );
   }
