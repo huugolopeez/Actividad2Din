@@ -15,11 +15,16 @@ class PostCellView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Text(
-      sText,
-      style: TextStyle(
-        color: Colors.amber[iColorCode],
-        fontSize: dFontSize
-      ));
+    return Container(
+      color: Colors.amber[iColorCode],
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Text(
+            sText,
+            style: TextStyle(
+                fontSize: dFontSize
+            ))
+      )
+    );
   }
 }
