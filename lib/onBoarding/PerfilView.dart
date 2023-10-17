@@ -1,3 +1,4 @@
+import 'package:actividad2/FirestoreObjects/FbUsuario.dart';
 import 'package:actividad2/custom/HLTextField.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,14 +12,11 @@ class PerfilView extends StatelessWidget {
   TextEditingController tecAge = TextEditingController();
 
   Future<void> onClickAceptar() async {
-    
-    final usuario = <String, dynamic>{
-      "nombre": tecName.text,
-      "edad": int.parse(tecAge.text)
-    };
+
+    FbUsuario usuario = new FbUsuario(nombre: tecName.text, edad: int.parse(tecAge.text));
 
     String uidUser = FirebaseAuth.instance.currentUser!.uid;
-    await db.collection("Usuarios").doc(uidUser).set(usuario);
+    await db.collection("Usuarios").doc(uidUser).set(usuario.toFirestore());
     Navigator.of(_context).popAndPushNamed('/homeview');
   }
 
