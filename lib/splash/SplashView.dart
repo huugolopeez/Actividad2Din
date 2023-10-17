@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
       String uid = FirebaseAuth.instance.currentUser!.uid;
       DocumentReference<FbUsuario> reference = db.collection("Usuarios").doc(uid).withConverter(fromFirestore: FbUsuario.fromFirestore, toFirestore: (FbUsuario usuario, _) => usuario.toFirestore());
       DocumentSnapshot<FbUsuario> docSnap = await reference.get();
-      FbUsuario usuario = docSnap.data()!;
+      FbUsuario? usuario = docSnap.data();
 
       if(usuario != null) Navigator.of(context).popAndPushNamed('/homeview');
       else Navigator.of(context).popAndPushNamed('/perfilview');
