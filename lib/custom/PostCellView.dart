@@ -18,7 +18,7 @@ class PostCellView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Container(
-      color: Colors.amber[iColorCode],
+      color: Colors.deepPurple[iColorCode],
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
