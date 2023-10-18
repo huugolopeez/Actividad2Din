@@ -16,8 +16,8 @@ class FbUsuario {
       ) {
       final data = snapshot.data();
       return FbUsuario(
-          nombre: data?['nombre'] ? data!['nombre']: '',
-          edad: data?['edad'] ? data!['edad']: 0
+          nombre: data?['nombre'],
+          edad: data?['edad']
       );
   }
 

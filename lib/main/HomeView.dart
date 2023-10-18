@@ -3,6 +3,8 @@ import 'package:actividad2/custom/PostCellView.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../custom/PostGridCellView.dart';
+
 class HomeView extends StatefulWidget {
 
   @override
@@ -13,6 +15,7 @@ class _HomeViewState extends State<HomeView> {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   final List<FbPost> posts = [];
+  final bool bIsList = true;
 
   @override
   void initState() {
@@ -24,9 +27,33 @@ class _HomeViewState extends State<HomeView> {
     CollectionReference<FbPost> reference = db.collection("Posts").withConverter(fromFirestore: FbPost.fromFirestore, toFirestore: (FbPost post, _) => post.toFirestore());
     QuerySnapshot<FbPost> querySnap = await reference.get();
     for(int i = 0 ; i < querySnap.docs.length ; i++) {
-      setState(() {
+       setState(() {
         posts.add(querySnap.docs[i].data());
       });
+    }
+  }
+
+  Widget? gridOrList(bool bIsList) {
+    if(bIsList) {
+      return ListView.separated(
+          padding: EdgeInsets.all(20),
+          itemCount: posts.length,
+          itemBuilder: (context, index) {
+            return PostCellView(sTitulo: posts[index].titulo, sCuerpo: posts[index].cuerpo, iColorCode: 300, dFontSize: 30);
+          },
+          separatorBuilder: (context, index) {
+            return Divider();
+          }
+      );
+    } else {
+      return GridView.builder(
+          padding: EdgeInsets.all(20),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+          itemCount: posts.length,
+          itemBuilder: (context, index) {
+            return PostGridCellView(sTitulo: posts[index].titulo, sCuerpo: posts[index].cuerpo, iColorCode: 300, dFontSize: 30);
+          }
+      );
     }
   }
 
@@ -40,15 +67,8 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.deepPurple,
         shadowColor: Colors.deepPurpleAccent
       ),
-      body: ListView.separated(
-        padding: EdgeInsets.all(20),
-        itemCount: posts.length,
-        itemBuilder: (context, index) {
-          return PostCellView(sTitulo: posts[index].titulo,sCuerpo: posts[index].cuerpo ,iColorCode: 600, dFontSize: 30);
-        },
-        separatorBuilder: (context, index) {
-          return Divider();
-        }
+      body: Center(
+        child: gridOrList(bIsList)
       )
     );
   }

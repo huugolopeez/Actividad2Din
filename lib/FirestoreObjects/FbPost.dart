@@ -16,7 +16,7 @@ class FbPost {
       ) {
     final data = snapshot.data();
     return FbPost(
-        titulo: data?['titulo'] ,
+        titulo: data?['titulo'],
         cuerpo: data?['cuerpo']
     );
   }
