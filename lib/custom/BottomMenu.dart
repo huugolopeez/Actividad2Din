@@ -13,7 +13,7 @@ class BottomMenu extends StatelessWidget {
       children: [
         TextButton(onPressed: () => evento!(0), child: Icon(Icons.list, color: Colors.deepPurpleAccent)),
         TextButton(onPressed: () => evento!(1), child: Icon(Icons.grid_view, color: Colors.deepPurpleAccent))
-      ],
+      ]
     );
   }
 

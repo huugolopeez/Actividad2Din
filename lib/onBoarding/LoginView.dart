@@ -1,3 +1,4 @@
+import 'package:actividad2/custom/HLTextButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,11 @@ class LoginView extends StatelessWidget {
     }
   }
 
+  void onHLTextutton(int indice) {
+    if(indice == 0) onClickLogin();
+    else if(indice == 1) onClickRegister();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -53,31 +59,7 @@ class LoginView extends StatelessWidget {
         children: [
           HLTextField(sLabel: 'Username', tecController: tecEmail),
           HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                child: TextButton(
-                  onPressed: () { onClickLogin(); },
-                  child: Text('Login'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
-                  ))
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                child: TextButton(
-                  onPressed: () { onClickRegister(); },
-                  child: Text('Register'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
-                  ))
-              )
-            ]
-          )
+          HLTextButton(sText0: Text('Login'), sText1: Text('Register'), evento: onHLTextutton)
         ]
       )
     );

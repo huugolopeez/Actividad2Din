@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../custom/HLTextButton.dart';
 import '../custom/HLTextField.dart';
 
 class RegisterView extends StatelessWidget {
@@ -44,6 +45,11 @@ class RegisterView extends StatelessWidget {
     }
   }
 
+  void onHLTextutton(int indice) {
+    if(indice == 0) onClickRegister();
+    else if(indice == 1) onClickCancel();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -62,31 +68,7 @@ class RegisterView extends StatelessWidget {
             HLTextField(sLabel: 'Username', tecController: tecEmail),
             HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true),
             HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                  child: TextButton(
-                    onPressed: () { onClickRegister(); },
-                    child: Text('Register'),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      foregroundColor: MaterialStateProperty.all(Colors.white)
-                    ))
-                ),
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                    child: TextButton(
-                      onPressed: () { onClickCancel(); },
-                      child: Text('Cancel'),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                        foregroundColor: MaterialStateProperty.all(Colors.white)
-                      ))
-                )
-              ]
-            )
+            HLTextButton(sText0: Text('Register'), sText1: Text('Cancel'), evento: onHLTextutton)
           ]
         )
     );

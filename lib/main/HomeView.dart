@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   final List<FbPost> posts = [];
-  late bool bIsList = true;
+  bool bIsList = true;
 
   @override
   void initState() {

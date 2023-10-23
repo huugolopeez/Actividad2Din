@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../custom/HLTextButton.dart';
+
 class PerfilView extends StatelessWidget {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
@@ -24,6 +26,11 @@ class PerfilView extends StatelessWidget {
     Navigator.of(_context).popAndPushNamed('/loginview');
   }
 
+  void onHLTextutton(int indice) {
+    if(indice == 0) onClickAceptar();
+    else if(indice == 1) onClickCancelar();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -41,25 +48,7 @@ class PerfilView extends StatelessWidget {
         children: [
           HLTextField(sLabel: 'Name', tecController: tecName),
           HLTextField(sLabel: 'Age', tecController: tecAge),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                onPressed: onClickAceptar,
-                child: Text('Aceptar'),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                  foregroundColor: MaterialStateProperty.all(Colors.white)
-                )),
-              TextButton(
-                onPressed: onClickCancelar,
-                child: Text('Cancelar'),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                  foregroundColor: MaterialStateProperty.all(Colors.white)
-                ))
-            ]
-          )
+          HLTextButton(sText0: Text('Aceptar'), sText1: Text('Cancelar'), evento: onHLTextutton)
         ]
       )
     );
