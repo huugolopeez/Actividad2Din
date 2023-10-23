@@ -1,4 +1,5 @@
 import 'package:actividad2/FirestoreObjects/FbPost.dart';
+import 'package:actividad2/custom/BottomMenu.dart';
 import 'package:actividad2/custom/PostCellView.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,8 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: Center(
         child: gridOrList(bIsList)
-      )
+      ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }
