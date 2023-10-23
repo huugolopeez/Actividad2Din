@@ -16,12 +16,21 @@ class _HomeViewState extends State<HomeView> {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   final List<FbPost> posts = [];
-  final bool bIsList = true;
+  late bool bIsList = true;
 
   @override
   void initState() {
     super.initState();
     descargarPosts();
+  }
+
+  @override
+  void onBottomMenuPressed(int indice) {
+    setState(() {
+      if(indice == 0) bIsList = true;
+      else if(indice == 1) bIsList = false;
+    });
+
   }
 
   void descargarPosts() async {
@@ -71,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
       body: Center(
         child: gridOrList(bIsList)
       ),
-      bottomNavigationBar: BottomMenu(),
+      bottomNavigationBar: BottomMenu(evento: onBottomMenuPressed)
     );
   }
 }
